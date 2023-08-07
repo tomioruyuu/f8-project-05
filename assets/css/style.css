@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+input,
+textarea,
+section {
+  scroll-behavior: smooth;
+  font-family: Open Sans, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* common */
+:root {
+  --primary-color: #7264d6;
+}
+
+.main-content {
+  width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.8rem;
+  border-radius: 6px;
+}
+
+/* code */
+
+/* header */
+#navigation {
+ padding-top: 42px;
+ padding-bottom: 8px;
+}
+
+.navigation-item,
+.nav-list,
+.nav-accounts {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  margin-right: auto;
+  margin-left: 46px;
+}
+
+.nav-list li a {
+  position: relative;
+  color: #696d76;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  padding: 12px 24px;
+}
+
+.nav-list li:first-child a {
+  text-shadow: 0 0 1px #212832;
+}
+
+.nav-list li a:hover {
+  text-shadow: 0 0 1px #212832;
+}
+
+.nav-list li a:hover::after {
+  display: inline-block;
+}
+
+.nav-list li a::after {
+  content: "";
+  display: none;
+  position: absolute;
+  bottom: 8px;
+  left: 24px;
+  height: 1px;
+  width: calc(100% - 48px);
+  background-color: #7264d6;
+}
+
+.nav-list li:first-child a::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  bottom: 8px;
+  left: 24px;
+  height: 1px;
+  width: calc(100% - 48px);
+  background-color: #7264d6;
+}
+
+.nav-accounts {
+  gap: 28px;
+}
+
+.nav-accounts .accounts {
+  color: #212832;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.8rem;
+}
+
+
+.nav-accounts__btn--sign-up {
+    --height: 52px;
+
+    background: #212832;
+    height:  var(--height);
+    width: 114px;
+}
