@@ -36,7 +36,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFF;
+  color: #fff;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -44,12 +44,38 @@ a {
   border-radius: 6px;
 }
 
+.name-section {
+  display: flex;
+  align-items: center;
+  color: #696d77;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+}
+
+.name-section::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: #696d77;
+  margin-right: 12px;
+}
+
 /* code */
 
-/* header */
+main {
+  height: 50000px;
+}
+
+/* NAVIGATION */
 #navigation {
- padding-top: 42px;
- padding-bottom: 8px;
+  padding-top: 42px;
+  padding-bottom: 8px;
+  background: #fff;
+  position: sticky;
+  top: -34px;
+  z-index: 10;
 }
 
 .navigation-item,
@@ -57,6 +83,10 @@ a {
 .nav-accounts {
   display: flex;
   align-items: center;
+}
+
+.logo-web {
+  cursor: pointer;
 }
 
 .nav-list {
@@ -119,11 +149,95 @@ a {
   line-height: 2.8rem;
 }
 
-
 .nav-accounts__btn--sign-up {
-    --height: 52px;
+  --height: 52px;
 
-    background: #212832;
-    height:  var(--height);
-    width: 114px;
+  background: #212832;
+  height: var(--height);
+  width: 114px;
+}
+
+/* HEADER */
+#header {
+}
+
+.header-content {
+  display: flex;
+}
+
+.header-desc__name {
+  animation: slideToTop 0.3s linear ;
+}
+
+.header-desc__heading {
+  width: 500px;
+  margin-top: 12px;
+  color: #212832;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 7rem;
+}
+
+.header-dest__emphasis {
+  color: #7264d6;
+}
+
+.header-desc__desc-heading {
+  width: 540px;
+  margin-top: 20px;
+  color: #696d76;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 3rem;
+}
+
+.header-desc__action {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 16px 42px 0px rgba(0, 0, 0, 0.07);
+}
+
+.header-action__input {
+  border: none;
+  outline: none;
+  color: #696d76;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+}
+
+.header-action__input::placeholder {
+  padding-left: 16px;
+}
+
+.header-action__btn {
+  min-width: 150px;
+  height: 58px;
+  border-radius: 0.8rem;
+  background: #7264d6;
+  border: none;
+  outline: none;
+}
+
+.header-desc__note {
+  margin-top: 20px;
+  color: #696d76;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+@keyframes slideToTop {
+  from {
+    transform: translateY(10px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
