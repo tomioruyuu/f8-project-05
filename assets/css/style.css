@@ -471,13 +471,13 @@ main {
 }
 
 .header-interset {
-  right: 28px;
-  bottom: 27vh;
+  right: 175px;
+  bottom: 42vh;
 }
 
 .header-secured {
-  bottom: -10vh;
-  right: calc(5vw + 5px);
+  bottom: 60px;
+  right: 17vw;
 }
 
 /* WORKS */
@@ -590,8 +590,6 @@ main {
   display: flex;
   align-items: center;
 }
-
-
 
 /* feature 1 advertisement */
 .fo-adv {
@@ -708,7 +706,7 @@ main {
   font-family: Open Sans;
   font-size: 1.8rem;
   font-weight: 600;
-  line-height: 3rem; 
+  line-height: 3rem;
 }
 
 .ft-adv__payment-list--choices {
@@ -718,7 +716,7 @@ main {
   gap: 18px;
 }
 
-.ft-adv__payment-more:hover  {
+.ft-adv__payment-more:hover {
   opacity: 0.8;
 }
 
@@ -728,3 +726,35 @@ main {
   top: calc(43% + 2px);
 }
 
+/* EVALUATE */
+#evaluate {
+  margin-top: 160px;
+}
+
+/* evaluate tittle */
+.evaluate-title__name {
+  justify-content: center;
+}
+.evaluate-title {
+  text-align: center;
+}
+
+.evaluate-title__heading {
+  margin-top: 12px;
+  color: var(--primary-color);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.25; /* 125% */
+}
+
+.evaluate-title__desc {
+  margin-top: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 435px;
+  color: var(--sub-color);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75; /* 175% */
+}
