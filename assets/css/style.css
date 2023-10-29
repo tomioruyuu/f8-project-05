@@ -143,6 +143,7 @@ main {
   position: sticky;
   top: -34px;
   z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 
 .navigation-item,
@@ -757,4 +758,125 @@ main {
   font-style: normal;
   font-weight: 400;
   line-height: 1.75; /* 175% */
+}
+
+/* EVALUATE CLIENTS */
+.evaluate-clients {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.e-clients-item,
+.e-clients-item__user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.e-clients-item__content {
+  position: relative;
+  padding: 42px 28px;
+  border: 1px solid #dfe2e8;
+  border-radius: 5px;
+  background: #fff;
+  transition: 0s;
+}
+
+.e-clients-item__content:hover {
+  transition: 0.4s;
+  box-shadow: 0px 7px 18px 0px rgba(0, 0, 0, 0.07);
+  border-color: transparent;
+}
+
+.e-clients-item__content:hover::before {
+  transition: 0.4s;
+  box-shadow: 11px 11px 17px 0px rgba(0, 0, 0, 0.07);
+  border-color: transparent;
+}
+
+.e-clients-item__content::before {
+  position: absolute;
+  bottom: -35px;
+  left: calc(50% - 36px);
+  content: "";
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  transform: rotate(45deg);
+  background-color: inherit;
+  border: 1px solid #dfe2e8;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  transition: 0s;
+  border-radius: 0 0 5px 0;
+}
+
+.e-clients-item__desc {
+  text-align: center;
+  width: 514px;
+  color: #696d76;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5454; /* 154.545% */
+}
+
+.e-clients-item__user {
+  margin-top: 80px;
+}
+
+.avata-user__block {
+  position: relative;
+  height: 104px;
+  width: 104px;
+  background: #4ab5e3;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avata-user__block .avt-clients {
+  position: absolute;
+  bottom: 0;
+  display: block;
+}
+
+.e-clients-item__user--name {
+  margin-top: 20px;
+  color: #070052;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.38462; /* 138.462% */
+}
+
+.e-clients-item__user--job {
+  color: var(--sub-color);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.666667; /* 166.667% */
+}
+
+.e-clients-item:nth-child(2) .e-clients-item__user .avata-user__block {
+  background-color: #439f90;
+}
+
+.change-clients {
+  margin-top: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.change-clients__item:first-child {
+  border: none; 
+  background: #7264d6;
+}
+
+.change-clients__item {
+  height: 6px;
+  width: 20px;
+  border: 2px solid var(--sub-color);
+  margin: 0 5px;
+  border-radius: 2px;
 }
