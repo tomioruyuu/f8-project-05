@@ -865,11 +865,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .change-clients__item:first-child {
-  border: none; 
+  border: none;
   background: #7264d6;
 }
 
@@ -879,4 +878,114 @@ main {
   border: 2px solid var(--sub-color);
   margin: 0 5px;
   border-radius: 2px;
+}
+
+/* BLOG */
+#blog {
+  margin-top: 160px;
+}
+
+/* BLOG TITTLE */
+.blog-tittle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blog-tittle__content--heading {
+  margin-top: 6px;
+  color: var(--primary-color);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.25; /* 125% */
+}
+
+.blog-tittle__content-desc {
+  margin-top: 18px;
+  width: 435px;
+  color: var(--sub-color);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.75; /* 175% */
+}
+
+.blog__more-info {
+  min-width: 123px;
+  height: 58px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  cursor: pointer;
+}
+
+/* BLOG MAIN CONTENT */
+.main-blog--item__main-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.4s;
+}
+
+.main-blog {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 30px;
+}
+
+.main-blog--item {
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-radius: 12px;
+  border: 1px solid #dfe2e8;
+  transition: 0.4s;
+}
+
+.main-blog--item:hover {
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.07);
+  border-color: transparent;
+}
+
+.main-blog--item:hover .main-blog--item__main-img {
+  scale: 1.05;
+}
+
+.main-blog--item:hover .main-blog--item__content {
+  transform: translateY(-10px);
+}
+
+.main-blog--item__content {
+  transition: 0.4s;
+}
+
+.main-blog--item__content-time {
+  color: var(--sub-color);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.714; /* 171.429% */
+}
+
+.main-blog--item__content-desc {
+  margin-top: 10px;
+  width: 332px;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.6667; /* 166.667% */
+}
+
+.main-blog--item__content-cta {
+  margin-top: 20px;
+  color: var(--sub-color);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.625; /* 162.5% */
+}
+
+.main-blog--item:hover .main-blog--item__content-cta {
+  color: #7264D6;
 }
