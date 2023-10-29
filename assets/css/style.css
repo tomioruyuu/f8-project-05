@@ -987,5 +987,7 @@ main {
 }
 
 .main-blog--item:hover .main-blog--item__content-cta {
-  color: #7264D6;
+  color: #7264d6;
+  cursor: pointer;
+  text-decoration: underline;
 }
