@@ -24,10 +24,26 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- LINK FAVICON -->
-    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./assets/favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./assets/favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./assets/favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/favicon/apple-icon-76x76.png"
+    />
     <link
       rel="apple-touch-icon"
       sizes="114x114"
@@ -59,13 +75,37 @@
       sizes="192x192"
       href="./assets/favicon/android-icon-192x192.png"
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./assets/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
     <link rel="manifest" href="./assets/favicon/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
+
+    <!-- LINT FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>CeloBank</title>
   </head>
@@ -720,7 +760,48 @@
 
     <div class="modal-in">
       <div class="modal-in__content">
-        <h2>Log in</h2>
+        <h2 class="main-blog--item__content-heading">Login Form</h2>
+        <form action="" class="login-form">
+          <div class="login__form-item">
+            <label for="email-login">Email</label>
+            <input
+              type="email"
+              id="email-login"
+              class="email-login"
+              placeholder="Email..."
+              name="email"
+            />
+          </div>
+
+          <div class="login__form-item">
+            <label for="password-login">Password</label>
+            <input
+              type="password"
+              id="password-login"
+              class="password-login"
+              placeholder="Password"
+              name="email"
+            />
+          </div>
+
+          <div class="modal-item__content--infor">
+            <p class="forgot">Forgot password?</p>
+            <p class="signIn">You don't have an account? <label for="" class="toSignUpform">Sign Up</label></p>
+          </div>
+
+          <button class="login-btn">Login</button>
+
+          <div class="another-login">
+            <p>Or continue with:</p>
+            <img src="./assets/img/face.jpg" alt="" />
+            <img src="./assets/img/gg.png" alt="" />
+            <img src="./assets/img/linkedin.png" alt="" />
+          </div>
+
+          <div class="close-form">
+            <i class="fa-solid fa-xmark close-form__icon"></i>
+          </div>
+        </form>
       </div>
     </div>
 
