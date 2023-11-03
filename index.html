@@ -132,7 +132,7 @@
             </li>
           </ul>
           <div class="nav-accounts">
-            <a href="#!" class="accounts">Log in</a>
+            <a href="#!" class="accounts">Login</a>
             <div class="nav-accounts__btn">
               <a href="#!" class="nav-accounts__btn--sign-up btn">Sign up</a>
             </div>
@@ -758,22 +758,23 @@
       </footer>
     </main>
 
-    <div class="modal-in">
-      <div class="modal-in__content">
-        <h2 class="main-blog--item__content-heading">Login Form</h2>
-        <form action="" class="login-form">
-          <div class="login__form-item">
-            <label for="email-login">Email</label>
+    <!-- MODAL LOGIN -->
+    <section class="modal" id="modal-in">
+      <div class="modal-content">
+        <h2 class="form-heading">Login Form</h2>
+        <form action="" class="form">
+          <div class="form-item">
+            <label for="email">Email</label>
             <input
               type="email"
-              id="email-login"
-              class="email-login"
+              id="email"
+              class="email"
               placeholder="Email..."
               name="email"
             />
           </div>
 
-          <div class="login__form-item">
+          <div class="form-item">
             <label for="password-login">Password</label>
             <input
               type="password"
@@ -789,7 +790,7 @@
             <p class="signIn">You don't have an account? <label for="" class="toSignUpform">Sign Up</label></p>
           </div>
 
-          <button class="login-btn">Login</button>
+          <button class="form-btn">Login</button>
 
           <div class="another-login">
             <p>Or continue with:</p>
@@ -803,7 +804,68 @@
           </div>
         </form>
       </div>
-    </div>
+    </section>
+
+    <!-- MODAL SIGN UP -->
+      <section class="modal" id="modal-up">
+        <div class="modal-content">
+          <h2 class="form-heading">Sign up form</h2>
+          <form action="" class="form">
+            <div class="form-item ">
+              <label for="name">Name</label>
+              <input
+                type="name"
+                id="name"
+                class="name"
+                placeholder="VD: Thanh Ngo"
+                name="name"
+              />
+              <p class="err-message"></p>
+            </div>
+
+            <div class="form-item">
+              <label for="email-up">Email</label>
+              <input
+                type="email"
+                id="email-up"
+                class="email"
+                placeholder="VD: thanhngo@gmail.com"
+                name="email"
+              />
+            </div>
+
+            <div class="form-item">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="password"
+                placeholder="Password"
+                name="password"
+              />
+            </div>
+
+            <div class="form-item">
+              <label for="comfirm-pass">Confirm password</label>
+              <input
+                type="comfirm-pass"
+                id="comfirm-pass"
+                class="comfirm-pass"
+                placeholder="Confirm password"
+                name="comfirm-pass"
+              />
+            </div>
+
+          <button class="form-btn signUp-btn">Send</button>
+
+            <div class="close-form">
+              <i class="fa-solid fa-xmark close-form__icon"></i>
+            </div>  
+
+            <p class="add-login">You have an account? <span class="to-login">Login</span></p>
+          </form>
+        </div>
+      </section>
 
     <script src="./main.js"></script>
   </body>
