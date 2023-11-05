@@ -1176,7 +1176,7 @@ a {
 /* MODAL LOGIN */
 .modal{
   position: fixed;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   top: 0;

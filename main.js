@@ -88,4 +88,83 @@ function changeNavigation(navListItem, underline) {
   }
 }
 
-changeNavigation(".nav-list li", ".underline")
+// change position of line when scroll
+function scrollToChange(navListItem, underline) {
+  let line = $(underline);
+  let navChange = $$(navListItem);
+
+  window.onscroll = function () {
+    let position = window.scrollY;
+    let y = Math.floor(position);
+    if (y < 764) {
+      line.style.left = 24 + "px";
+      line.style.width = navChange[0].offsetWidth - 48 + "px";
+    } else if (y < 1472) {
+      line.style.left = navChange[1].offsetLeft + 24 + "px";
+      line.style.width = navChange[1].offsetWidth - 48 + "px";
+    } else if (y < 3856) {
+      line.style.left = navChange[2].offsetLeft + 24 + "px";
+      line.style.width = navChange[2].offsetWidth - 48 + "px";
+    } else {
+      line.style.left = navChange[3].offsetLeft + 24 + "px";
+      line.style.width = navChange[3].offsetWidth - 48 + "px";
+    }
+  };
+}
+
+function istText(value) {
+  if(!value) return undefined
+  else if (value.trim() < 6) return "Your name have to consist of 6 characters"
+  else return undefined
+}
+
+function isEmail(value) {
+
+}
+
+
+
+
+function Validation(info) {
+  // get form element
+  let formElement = $(info.form)
+
+  // another function
+  function getParents(inputElement) {
+    while(inputElement.parentNode) {
+      if(inputElement.parentNode.matches(".form-item")) {
+        return inputElement.parentNode
+      }
+      inputElement = inputParent.parentNode
+    }
+  }
+
+  function validation() {
+
+  }
+
+  if (formElement) {
+    let inputElements = formElement.querySelectorAll("input")
+
+    Array.from(inputElements).forEach(inputElement => {
+
+      inputElement.onblur = function() {
+        let inputParent = getParents(this)
+        
+        validation()
+      }
+    })
+
+  }
+}
+
+function start() {
+  changeNavigation(".nav-list li", ".underline");
+  scrollToChange(".nav-list li", ".underline");
+  Validation({
+    form: "#modal-in",
+    rules: [istText, isEmail]
+  });
+}
+
+start();
