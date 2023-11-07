@@ -760,7 +760,7 @@
     </main>
 
     <!-- MODAL LOGIN -->
-    <section class="modal" id="modal-in">
+    <section id="modal-in" class="modal">
       <div class="modal-content">
         <h2 class="form-heading">Login Form</h2>
         <form action="" class="form">
@@ -811,7 +811,7 @@
     </section>
 
     <!-- MODAL SIGN UP -->
-    <section id="modal-up">
+    <section id="modal-up" class="modal">
       <div class="modal-content">
         <h2 class="form-heading">Sign up form</h2>
         <form action="" class="form">
@@ -836,28 +836,31 @@
               placeholder="VD: thanhngo@gmail.com"
               name="email"
             />
+            <p class="err-message"></p>
           </div>
 
           <div class="form-item">
             <label for="password">Password</label>
             <input
               type="password"
-              id="password"
+              id="password-up"
               class="password"
               placeholder="Password"
               name="password"
             />
+            <p class="err-message"></p>
           </div>
 
           <div class="form-item">
             <label for="comfirm-pass">Confirm password</label>
             <input
-              type="comfirm-pass"
-              id="comfirm-pass"
+              type="password"
+              id="confirm-pass"
               class="comfirm-pass"
               placeholder="Confirm password"
-              name="comfirm-pass"
+              name="confirm-pass"
             />
+            <p class="err-message"></p>
           </div>
 
           <button class="form-btn signUp-btn">Send</button>

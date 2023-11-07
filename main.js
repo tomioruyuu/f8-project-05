@@ -112,49 +112,111 @@ function scrollToChange(navListItem, underline) {
   };
 }
 
-function istText(value) {
-  if(!value) return undefined
-  else if (value.trim() < 6) return "Your name have to consist of 6 characters"
-  else return undefined
+function isRequired(selector) {
+  return {
+    selector,
+    test(value) {
+      return value.trim() ? undefined : "Please enter this information";
+    },
+  };
 }
 
-function isEmail(value) {
-
+function isEmail(selector) {
+  return {
+    selector,
+    test(value) {
+      return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value.trim())
+        ? undefined
+        : "Please enter exactly your email";
+    },
+  };
 }
 
+function isPassword(selector) {
+  return {
+    selector,
+    test(value) {
+      let regex = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
+      return regex.test(value.trim())
+        ? undefined
+        : "Minimum eight characters, at least one character and one number";
+    },
+  };
+}
 
-
+function isConfirmPass(selector) {
+  return {
+    selector,
+    test(value) {
+      let password = document.querySelector("#password-up").value;
+      console.log(password);
+      return password == value
+        ? undefined
+        : "The information you just entered does not match";
+    },
+  };
+}
 
 function Validation(info) {
   // get form element
-  let formElement = $(info.form)
+  let formElement = $(info.form);
 
   // another function
   function getParents(inputElement) {
-    while(inputElement.parentNode) {
-      if(inputElement.parentNode.matches(".form-item")) {
-        return inputElement.parentNode
+    while (inputElement.parentNode) {
+      if (inputElement.parentNode.matches(".form-item")) {
+        return inputElement.parentNode;
       }
-      inputElement = inputParent.parentNode
+      inputElement = inputParent.parentNode;
     }
   }
 
-  function validation() {
+  function validation(inputElement, inputParent, rules) {
+    let inputValue = inputElement.value;
 
+    let errMessage;
+
+    for (let i = 0; i < rules.length; i++) {
+      if (inputElement == document.querySelector(rules[i].selector)) {
+        errMessage = rules[i].test(inputValue);
+        if (errMessage) break;
+      }
+    }
+
+    if (errMessage) {
+      console.log(errMessage);
+      inputParent.classList.add("invalid");
+      inputParent.querySelector(".err-message").innerText = errMessage;
+    } else {
+      inputParent.classList.remove("invalid");
+      inputParent.querySelector(".err-message").innerText = "";
+    }
+    return errMessage;
   }
 
   if (formElement) {
-    let inputElements = formElement.querySelectorAll("input")
+    let inputElements = formElement.querySelectorAll("input");
+    Array.from(inputElements).forEach((inputElement) => {
+      inputElement.onblur = function () {
+        let inputParent = getParents(this);
+        validation(this, inputParent, info.rules);
+      };
+      inputElement.oninput = function () {
+        let inputParent = getParents(this);
+        console.log("thanh");
+        inputParent.classList.remove("invalid");
+        inputParent.querySelector(".err-message").innerText = "";
 
-    Array.from(inputElements).forEach(inputElement => {
-
-      inputElement.onblur = function() {
-        let inputParent = getParents(this)
+      };
+    });
+    let submitForm = $(".signUp-btn")
+    submitForm.onclick = function () {
+      Array.from(inputElements).forEach((inputElement) => {
+        let inputParent = getParents(inputElement);
         
-        validation()
-      }
-    })
-
+      })
+    }
+    
   }
 }
 
@@ -162,8 +224,16 @@ function start() {
   changeNavigation(".nav-list li", ".underline");
   scrollToChange(".nav-list li", ".underline");
   Validation({
-    form: "#modal-in",
-    rules: [istText, isEmail]
+    form: "#modal-up",
+    rules: [
+      isRequired("#name"),
+      isRequired("#email-up"),
+      isEmail("#email-up"),
+      isRequired("#password-up"),
+      isPassword("#password-up"),
+      isRequired("#confirm-pass"),
+      isConfirmPass("#confirm-pass ")
+    ],
   });
 }
 
