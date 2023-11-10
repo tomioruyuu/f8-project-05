@@ -96,6 +96,7 @@ function scrollToChange(navListItem, underline) {
   window.onscroll = function () {
     let position = window.scrollY;
     let y = Math.floor(position);
+    // CHANGE THE POSITION OF THE LINE UNDER THE NAVIGATION LIST
     if (y < 764) {
       line.style.left = 24 + "px";
       line.style.width = navChange[0].offsetWidth - 48 + "px";
@@ -109,9 +110,25 @@ function scrollToChange(navListItem, underline) {
       line.style.left = navChange[3].offsetLeft + 24 + "px";
       line.style.width = navChange[3].offsetWidth - 48 + "px";
     }
+
+    // CHANGE THE THE BOLD OF THE TEXT IN NAVIAGATION LIST
+    if(y < 764) {
+      navChange[0].classList.add("bold")
+    }
+    else navChange[0].classList.remove("bold")
+
+    if(y < 1472 && y >= 764) navChange[1].classList.add("bold")
+    else navChange[1].classList.remove("bold")
+
+    if(y < 3856 && y >= 1472) navChange[2].classList.add("bold")
+    else navChange[2].classList.remove("bold")
+
+    if(y >= 3856) navChange[3].classList.add("bold")
+    else navChange[3].classList.remove("bold")
   };
 }
 
+// RULES FOR VALIDATION FORM 
 function isRequired(selector) {
   return {
     selector,
@@ -149,7 +166,6 @@ function isConfirmPass(selector) {
     selector,
     test(value) {
       let password = document.querySelector("#password-up").value;
-      console.log(password);
       return password == value
         ? undefined
         : "The information you just entered does not match";
@@ -157,9 +173,11 @@ function isConfirmPass(selector) {
   };
 }
 
+// VALIDATION
 function Validation(info) {
   // get form element
   let formElement = $(info.form);
+  console.log(formElement);
 
   // another function
   function getParents(inputElement) {
@@ -184,7 +202,6 @@ function Validation(info) {
     }
 
     if (errMessage) {
-      console.log(errMessage);
       inputParent.classList.add("invalid");
       inputParent.querySelector(".err-message").innerText = errMessage;
     } else {
@@ -203,20 +220,34 @@ function Validation(info) {
       };
       inputElement.oninput = function () {
         let inputParent = getParents(this);
-        console.log("thanh");
         inputParent.classList.remove("invalid");
         inputParent.querySelector(".err-message").innerText = "";
-
       };
     });
-    let submitForm = $(".signUp-btn")
-    submitForm.onclick = function () {
+
+    let submitForm = $(info.submitElement);
+    submitForm.onclick = function (e) {
+      e.preventDefault();
+      let checkForm = true;
+      let data = [];
       Array.from(inputElements).forEach((inputElement) => {
         let inputParent = getParents(inputElement);
-        
-      })
-    }
-    
+        let isForm = validation(inputElement, inputParent, info.rules);
+        data.push(inputElement.value);
+        if (isForm) {
+          checkForm = false;
+        }
+      });
+      if (!checkForm) {
+        e.preventDefault();
+      } else {
+        info.callBack(data);
+        $(info.form).classList.remove("add");
+        Array.from(inputElements).forEach((inputElement) => {
+          inputElement.value = "";
+        });
+      }
+    };
   }
 }
 
@@ -232,8 +263,25 @@ function start() {
       isRequired("#password-up"),
       isPassword("#password-up"),
       isRequired("#confirm-pass"),
-      isConfirmPass("#confirm-pass ")
+      isConfirmPass("#confirm-pass "),
     ],
+    callBack(data) {
+      console.log(data);
+    },
+    submitElement: ".signUp-btn",
+  });
+  Validation({
+    form: "#modal-in",
+    rules: [
+      isRequired("#email-in"),
+      isEmail("#email-in"),
+      isRequired("#password-login"),
+      isPassword("#password-login"),
+    ],
+    callBack(data) {
+      console.log(data);
+    },
+    submitElement: ".form-btn",
   });
 }
 
