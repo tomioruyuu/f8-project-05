@@ -15,7 +15,7 @@ section {
 
 html {
   font-size: 62.5%;
-  scroll-padding-top: 200px;
+  scroll-padding-top: 150px;
 }
 
 /* common */
@@ -86,7 +86,7 @@ a {
 .f-content__desc {
   margin-top: 20px;
   color: var(--sub-color);
-  font-family:  Sans;
+  font-family: Sans;
   font-size: 1.8rem;
   font-weight: 400;
   line-height: 3rem;
@@ -228,6 +228,7 @@ a {
 /* HEADER */
 #header {
   margin-top: 68px;
+  transition: 0.3s;
 }
 
 .header-content {
@@ -1174,7 +1175,7 @@ a {
 }
 
 /* MODAL LOGIN */
-.modal{
+.modal {
   position: fixed;
   display: none;
   justify-content: center;
@@ -1357,14 +1358,13 @@ a {
   bottom: -12px;
   font-size: 1rem;
   font-weight: 600;
-  
 }
 
-.form-item.invalid label{
+.form-item.invalid label {
   color: #f00;
 }
 
-.form-item.invalid input{
+.form-item.invalid input {
   border-color: #f00;
 }
 
@@ -1374,7 +1374,7 @@ a {
 
 .add-login {
   text-align: right;
-  margin-top: 10px; 
+  margin-top: 10px;
   font-size: 12px;
   font-weight: 400;
 }

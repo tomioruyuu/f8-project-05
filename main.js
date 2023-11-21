@@ -59,76 +59,47 @@ let $$ = document.querySelectorAll.bind(document);
   };
 }
 
-// CHANGE NAVIGATION AFTER CLICK THE CONTENT
-function changeNavigation(navListItem, underline) {
-  let navChange = $$(navListItem);
-  let line = $(underline);
-
-  // set width and posotion for first element
-  {
-    line.style.width = navChange[0].offsetWidth - 48 + "px";
-    line.style.left = 24 + "px";
-  }
-
-  for (let i = 0; i < navChange.length; i++) {
-    navChange[i].onclick = function () {
-      for (let j = 0; j < navChange.length; j++) {
-        if (navChange[j].classList.contains("bold")) {
-          navChange[j].classList.remove("bold");
-        }
-      }
-      this.classList.add("bold");
-
-      // change width and position
-      {
-        line.style.left = navChange[i].offsetLeft + 24 + "px";
-        line.style.width = navChange[i].offsetWidth - 48 + "px";
-      }
-    };
-  }
-}
-
 // change position of line when scroll
 function scrollToChange(navListItem, underline) {
   let line = $(underline);
-  let navChange = $$(navListItem);
+  let navList = $$(navListItem);
 
-  window.onscroll = function () {
-    let position = window.scrollY;
-    let y = Math.floor(position);
-    // CHANGE THE POSITION OF THE LINE UNDER THE NAVIGATION LIST
-    if (y < 764) {
-      line.style.left = 24 + "px";
-      line.style.width = navChange[0].offsetWidth - 48 + "px";
-    } else if (y < 1472) {
-      line.style.left = navChange[1].offsetLeft + 24 + "px";
-      line.style.width = navChange[1].offsetWidth - 48 + "px";
-    } else if (y < 3856) {
-      line.style.left = navChange[2].offsetLeft + 24 + "px";
-      line.style.width = navChange[2].offsetWidth - 48 + "px";
-    } else {
-      line.style.left = navChange[3].offsetLeft + 24 + "px";
-      line.style.width = navChange[3].offsetWidth - 48 + "px";
-    }
+  // set default value for underline
+  {
+    line.style.width = navList[0].offsetWidth - 48 + "px";
+    line.style.left = 24 + "px";
+  }
 
-    // CHANGE THE THE BOLD OF THE TEXT IN NAVIAGATION LIST
-    if(y < 764) {
-      navChange[0].classList.add("bold")
-    }
-    else navChange[0].classList.remove("bold")
-
-    if(y < 1472 && y >= 764) navChange[1].classList.add("bold")
-    else navChange[1].classList.remove("bold")
-
-    if(y < 3856 && y >= 1472) navChange[2].classList.add("bold")
-    else navChange[2].classList.remove("bold")
-
-    if(y >= 3856) navChange[3].classList.add("bold")
-    else navChange[3].classList.remove("bold")
+  let mainItem = $$(".main-item");
+  let options = {
+    root: null,
+    rootMargin: "150px",
+    threshold: 1,
   };
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio === 1) {
+        navList.forEach((item) => {
+          let li = item.parentNode;
+          li.classList.remove("bold");
+          let href = item.getAttribute("href");
+          if (href === "#" + entry.target.id) {
+            li.classList.add("bold");
+            line.style.left = li.offsetLeft + 24 + "px";
+            line.style.width = item.offsetWidth - 48 + "px";
+          }
+        });
+      }
+    });
+  }, options);
+
+  mainItem.forEach((item) => {
+    observer.observe(item);
+  });
 }
 
-// RULES FOR VALIDATION FORM 
+// RULES FOR VALIDATION FORM
 function isRequired(selector) {
   return {
     selector,
@@ -177,8 +148,6 @@ function isConfirmPass(selector) {
 function Validation(info) {
   // get form element
   let formElement = $(info.form);
-  console.log(formElement);
-
   // another function
   function getParents(inputElement) {
     while (inputElement.parentNode) {
@@ -252,8 +221,7 @@ function Validation(info) {
 }
 
 function start() {
-  changeNavigation(".nav-list li", ".underline");
-  scrollToChange(".nav-list li", ".underline");
+  scrollToChange(".nav-list li a", ".underline");
   Validation({
     form: "#modal-up",
     rules: [
@@ -286,3 +254,4 @@ function start() {
 }
 
 start();
+
